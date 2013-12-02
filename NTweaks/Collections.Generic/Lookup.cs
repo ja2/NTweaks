@@ -174,7 +174,31 @@ namespace NTweaks.Collections.Generic
 
         }
 
+        /// <summary>
+        /// Return a list of all keys in the lookup
+        /// </summary>
+        public IEnumerable<TKey> Keys()
+        {
+            return _dict.Keys;
+        }
 
+        /// <summary>
+        /// Return a distinct list of all values in the lookup
+        /// </summary>
+        public IEnumerable<TValue> Values()
+        {
+            return _dict.Values.SelectMany(v => v).Distinct();
+        }
+
+        /// <summary>
+        /// Return a list of all keys and their values
+        /// </summary>        
+        public IEnumerable<KeyValuePair<TKey,TValue>> All()
+        {
+            return (from k in _dict.ToList()
+                    from v in k.Value
+                    select new KeyValuePair<TKey,TValue>(k.Key, v));
+        }
     }
 
 }

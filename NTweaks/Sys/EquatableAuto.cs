@@ -51,8 +51,8 @@ namespace NTweaks.Sys
 
         private void CompileDelegates()
         {
-            //Note: This defines a default equals and gethashcode implementation based on the properties marked wiht the attribute.
-            //These can be overriden.
+            //Note: This defines a default equals and gethashcode implementation based on the 
+            //properties marked with the attribute.
 
             //Get all properties of the current type that have the equatable attribute
             var pis = this.GetType().GetProperties().Where(p => p.IsDefined(typeof(EquatableAutoPropertyAttribute), true)).ToList();

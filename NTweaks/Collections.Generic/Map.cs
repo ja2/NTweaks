@@ -157,6 +157,30 @@ namespace NTweaks.Collections.Generic
             get { return _sidReverse; }
         }
 
+        /// <summary>
+        /// Return a distinct list of items on the left side of the mapping
+        /// </summary>
+        public IEnumerable<T1> AllLeft()
+        {
+            return _forward.Keys;
+        }
+
+        /// <summary>
+        /// Return a distinct list of items on the right side of the mapping
+        /// </summary>
+        public IEnumerable<T2> AllRight()
+        {
+            return _reverse.Keys;
+        }
+
+        /// <summary>
+        /// Return a list of all keys and their values
+        /// </summary>        
+        public IEnumerable<KeyValuePair<T1, T2>> All()
+        {
+             return _forward.ToList();
+        }
+
     }
 
 }

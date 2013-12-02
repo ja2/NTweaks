@@ -64,6 +64,52 @@ public class LookupMapFixture
         Assert.AreEqual(3, count);
     }
 
+    /// <summary>
+    /// Make sure that All returns each item 
+    /// </summary>
+    public void All()
+    {
+
+        var all = _lookupMap.All();
+
+        Assert.AreEqual(3, all.Count());
+
+        Assert.AreEqual(_key1, all.ElementAt(0).Key);
+        Assert.AreEqual(_value1, all.ElementAt(0).Value);
+
+        Assert.AreEqual(_key2, all.ElementAt(1).Key);
+        Assert.AreEqual(_value2, all.ElementAt(1).Value);
+
+        Assert.AreEqual(_key1, all.ElementAt(2).Key);
+        Assert.AreEqual(_value2, all.ElementAt(2).Value);
+
+    }
+
+    /// <summary>
+    /// Make sure that Keys returns each key 
+    /// </summary>
+    public void AllLeft()
+    {
+
+        var keys = _lookupMap.AllLeft();
+
+        Assert.AreEqual(2, keys.Count());
+        Assert.AreEqual(_key1, keys.ElementAt(0));
+        Assert.AreEqual(_key2, keys.ElementAt(1));
+    }
+
+    /// <summary>
+    /// Make sure that Values returns distinct values 
+    /// </summary>
+    public void AllRight()
+    {
+
+        var values = _lookupMap.AllRight();
+
+        Assert.AreEqual(2, values.Count());
+        Assert.AreEqual(_value1, values.ElementAt(0));
+        Assert.AreEqual(_value2, values.ElementAt(1));
+    }
 
     #endregion
 

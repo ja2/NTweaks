@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web;
+using System.Linq;
 using System.Text;
 
 using NTweaks.Collections.Generic;
@@ -63,6 +64,62 @@ public class MapFixture
 
     }
 
+
+    /// <summary>
+    /// Make sure that All returns each item 
+    /// </summary>
+    public void All()
+    {
+        //To make it a better test, add another item to the backing dicts
+        _dictF.Add(_key1, _value2);
+        _dictR.Add(_value2,_key1);
+
+        var all = _map.All();
+        
+        Assert.AreEqual(3, all.Count());
+
+        Assert.AreEqual(_key1, all.ElementAt(0).Key);
+        Assert.AreEqual(_value1, all.ElementAt(0).Value);
+
+        Assert.AreEqual(_key2, all.ElementAt(1).Key);
+        Assert.AreEqual(_value2, all.ElementAt(1).Value);
+
+        Assert.AreEqual(_key1, all.ElementAt(2).Key);
+        Assert.AreEqual(_value2, all.ElementAt(2).Value);
+
+    }
+
+    /// <summary>
+    /// Make sure that Keys returns each key 
+    /// </summary>
+    public void AllLeft()
+    {
+        //To make it a better test, add another item to the backing dicts
+        _dictF.Add(_key1, _value2);
+        _dictR.Add(_value2, _key1);
+
+        var keys = _map.AllLeft();
+
+        Assert.AreEqual(2, keys.Count());
+        Assert.AreEqual(_key1, keys.ElementAt(0));
+        Assert.AreEqual(_key2, keys.ElementAt(1));
+    }
+
+    /// <summary>
+    /// Make sure that Values returns distinct values 
+    /// </summary>
+    public void AllRight()
+    {
+        //To make it a better test, add another item to the backing dicts
+        _dictF.Add(_key1, _value2);
+        _dictR.Add(_value2, _key1);
+
+        var values = _map.AllRight();
+
+        Assert.AreEqual(2, values.Count());
+        Assert.AreEqual(_value1, values.ElementAt(0));
+        Assert.AreEqual(_value2, values.ElementAt(1));
+    }
 
     #endregion
 

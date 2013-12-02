@@ -24,8 +24,8 @@ namespace NTweaks.Collections.Generic
             internal delegate void Remover(T3 t3, T4 t4);
 
             private readonly Lookup<T3, T4> _lookup;
-
             private readonly Remover _remover;
+
             internal MapSide(Lookup<T3, T4> lookup, Remover remover)
             {
                 _lookup = lookup;
@@ -82,7 +82,7 @@ namespace NTweaks.Collections.Generic
                 return ret;
 
             }
-
+                        
         }
 
         #endregion
@@ -174,6 +174,31 @@ namespace NTweaks.Collections.Generic
         public MapSide<T2, T1> Reverse
         {
             get { return _sidReverse; }
+        }
+
+        /// <summary>
+        /// A list of all mappings
+        /// </summary>
+        public IEnumerable<KeyValuePair<T1,T2>> All()
+        {
+            return _forward.All();
+        }
+
+        /// <summary>
+        /// A distinct list of values on the left side of the map
+        /// </summary>
+        public IEnumerable<T1> AllLeft()
+        {
+            return _forward.Keys(); 
+        }
+
+        /// <summary>
+        /// A distinct list of values on the right side of the map
+        /// </summary>
+        public IEnumerable<T2> AllRight()
+        {
+            return _reverse.Keys(); 
+
         }
 
     }
