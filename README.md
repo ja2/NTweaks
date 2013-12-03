@@ -20,7 +20,7 @@ _Versions_
 
 The versioning will be simplified a little from the main .Net versioning setup. A typical version number is 1.0.0.2. Only the first and last portions of the version number will be used. For minor changes and bug fixes, they will be point releases (so 1.0.0.3 next). For additional classes added to the library, the library will move up to the next major version.
 
-This should make clear the main focus of versions as they are releases.
+This should make clear the main focus of versions as they are released.
 
 
 _Documentation_
