@@ -136,6 +136,7 @@ packages/
 .nuget/
 *.nuspec
 *.nupkg
+Make Nuget Package.bat
 
 # Windows Azure Build Output
 csx
